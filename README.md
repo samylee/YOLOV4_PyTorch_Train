@@ -55,8 +55,8 @@ python cvt2darknet.py
 ```
 
 ## 复现重点
-- `ours`采用`adam`优化器，而`darknet`采用`sgd`
-- 完全复现`darknet-yolo_layer`的`loss`计算方式
+- `ours`采用`adam`优化器，而`darknet`采用`sgd`  
+- 完全复现`darknet-yolo_layer`的`loss`计算方式  
   <br>1. 负样本：每个`grid_cell`的3个`bbox`与所有`target`的`iou<0.7`，且不属于正样本`bbox`的下标，**同时添加了`compare_yolo_class`**
   <br>2. 正样本：每个`grid_cell`的3个`anchors`与`targets`最大`iou`的下标
   <br>**3. 每个`anchor`可以分别预测多个`targets`，并不是只有一个，且每个`anchor`可预测多个`class`**
